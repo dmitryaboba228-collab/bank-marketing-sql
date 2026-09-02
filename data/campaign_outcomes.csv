@@ -1,0 +1,5 @@
+outcome_id,outcome_name
+1,failure
+2,other
+3,success
+4,unknown
