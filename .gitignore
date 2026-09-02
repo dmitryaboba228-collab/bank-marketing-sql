@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.venv/
+_preview.html
+docs/md/
+docs/blueprint.html
+.ipynb_checkpoints/

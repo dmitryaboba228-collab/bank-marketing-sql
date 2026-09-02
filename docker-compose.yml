@@ -1,0 +1,23 @@
+services:
+  db:
+    image: postgres:17
+    container_name: bank_db
+    environment:
+      POSTGRES_DB: tbank
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./data:/Users/Shared/bank_data:ro
+      - ./sql:/sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d tbank"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+    restart: unless-stopped
+
+volumes:
+  pgdata:
